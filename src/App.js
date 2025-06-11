@@ -4,22 +4,58 @@ import myPhoto from './LimPhoto.jpeg';
 function App() {
   return (
     <div className="App">
-      <header style={{ marginTop: '2rem' }}>
-        <h1>HI! Welcome To My Portfolio</h1>
+      <header>
+        <h1>Welcome to My Portfolio</h1>
       </header>
-      <main style={{ marginTop: '2rem' }}>
+
+      <section className="profile-section">
         <img 
           src={myPhoto} 
-          alt="My Profile" 
-          style={{ borderRadius: '50%', width: '150px', height: '150px' }} 
+          alt="John Odysseus O. Lim" 
+          className="profile-img"
         />
         <h2>Lim, John Odysseus O.</h2>
-        <h4>BS in Computer Engineering, 4th Year</h4>
+        <h4>4th Year BS in Computer Engineering</h4>
         <p>
-          Hi! I'm a Computer Engineering student in the Data Science track. I'm interested in AI and Machine Learning. 
-          This portfolio is a simple representation of who I am.
+          I'm a Computer Engineering student specializing in Data Science. I'm passionate about Artificial Intelligence, Machine Learning, and solving real-world problems using technology. This portfolio showcases my work, skills, and aspirations.
         </p>
-      </main>
+      </section>
+
+      <section className="projects-section">
+        <h3>Projects</h3>
+        <ul>
+          <li>
+            <strong>Malaria Trend Analysis:</strong> Analyzes and predicts malaria cases (2000–2021) using supervised and unsupervised learning. Uses WHO data to cluster countries by trends and forecast case counts with KMeans and regression.
+          </li>
+          <li>
+            <strong>BananaLyze:</strong> Detects banana plant diseases using hyperspectral imaging + machine learning for early detection and targeted intervention in the Philippines.
+          </li>
+          <li>
+            <strong>CPU-GPU Case Study:</strong> Investigates optimal hardware combinations for machine learning workloads by benchmarking various CPU-GPU setups.
+          </li>
+        </ul>
+      </section>
+
+      <section className="skills-section">
+        <h3>Skills</h3>
+        <ul>
+          <li>Python, C++, JavaScript, Verilog</li>
+          <li>TensorFlow, scikit-learn, OpenCV</li>
+          <li>React, Node.js</li>
+          <li>Packet Tracer, Wireshark</li>
+        </ul>
+      </section>
+
+      <section className="contact-section">
+        <h3>Contact</h3>
+        <p>Email: johnodysseuslim@example.com</p>
+        <p>
+          GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">yourusername</a>
+        </p>
+        <p>
+          LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">yourusername</a>
+        </p>
+      </section>
     </div>
   );
 }

@@ -1,19 +1,76 @@
-.App {
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-  padding: 2rem;
-  color: #333;
-  background-color: #f9f9f9;
-  min-height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  font-family: 'Poppins', sans-serif;
 }
+
+.App {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
 h1 {
   color: #222;
-}
-img {
+  font-size: 2rem;
   margin-bottom: 1rem;
-  border: 2px solid #ccc;
 }
+
+h2 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+h4 {
+  color: #666;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
 p {
-  max-width: 500px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  max-width: 600px;
   margin: 1rem auto;
+}
+
+ul {
+  text-align: left;
+  list-style-type: disc;
+  margin: 1rem auto;
+  padding-left: 2rem;
+}
+
+a {
+  color: #0077cc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
 }
