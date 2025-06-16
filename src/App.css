@@ -145,15 +145,78 @@ html {
 /* Keep existing profile styles but enhance them */
 .profile-section {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.hero-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+.hero-image-container {
+  flex: 0 0 300px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .hero-image-container {
+    justify-content: flex-start;
+  }
+}
+
+.hero-text-container {
+  flex: 1;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero-text-container {
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:flex-row {
+    flex-direction: row !important;
+  }
+
+  .md\:text-left {
+    text-align: left !important;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start !important;
+  }
 }
 
 .profile-img {
   border-radius: 50%;
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   margin-bottom: 1rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -164,6 +227,13 @@ html {
 .profile-img:hover {
   transform: scale(1.05);
 }
+
+/* Override the inline width/height classes */
+.hero-image-container img {
+  width: 250px !important;
+  height: 250px !important;
+}
+
 
 /* Enhanced text styles */
 h1, h2, h3 {
