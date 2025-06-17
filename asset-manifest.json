@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/limportfolio/static/css/main.7b1130bd.css",
+    "main.js": "/limportfolio/static/js/main.c3f72fcf.js",
+    "static/media/LimResume.pdf": "/limportfolio/static/media/LimResume.02f62eb06f32434180f3.pdf",
+    "index.html": "/limportfolio/index.html",
+    "main.7b1130bd.css.map": "/limportfolio/static/css/main.7b1130bd.css.map",
+    "main.c3f72fcf.js.map": "/limportfolio/static/js/main.c3f72fcf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b1130bd.css",
+    "static/js/main.c3f72fcf.js"
+  ]
+}
