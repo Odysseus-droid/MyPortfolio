@@ -1,11 +1,35 @@
+"use client"
+
 import "./App.css"
-import myPhoto from "./LimPhoto.jpeg"
 import myResume from "./LimResume.pdf"
-import { useState } from "react"
-import { GitlabIcon as GitHub, Linkedin, Mail, ExternalLink, Download, Menu, X } from "lucide-react"
+import { useState, useEffect } from "react"
+import { GitlabIcon as GitHub, Linkedin, Mail, ExternalLink, Download, Menu, X, Phone, MapPin } from "lucide-react"
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("hero")
+
+  // Add scroll spy effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "about", "projects", "skills", "contact"]
+      const scrollPosition = window.scrollY + 100
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const projects = [
     {
@@ -61,18 +85,15 @@ function App() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              <a href="#about" className="nav-link">
-                About
-              </a>
-              <a href="#projects" className="nav-link">
-                Projects
-              </a>
-              <a href="#skills" className="nav-link">
-                Skills
-              </a>
-              <a href="#contact" className="nav-link">
-                Contact
-              </a>
+              {["About", "Projects", "Skills", "Contact"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className={`nav-link ${activeSection === item.toLowerCase() ? "text-blue-600 bg-blue-50" : ""}`}
+                >
+                  {item}
+                </a>
+              ))}
             </div>
 
             {/* Mobile Menu Button */}
@@ -87,47 +108,40 @@ function App() {
           {/* Mobile Navigation */}
           {isMenuOpen && (
             <div className="md:hidden py-4 space-y-4">
-              <a href="#about" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
-                About
-              </a>
-              <a href="#github-activity" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
-                GitHub Activity
-              </a>
-              <a href="#projects" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
-                Projects
-              </a>
-              <a href="#skills" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
-                Skills
-              </a>
-              <a href="#contact" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
-                Contact
-              </a>
+              {["About", "Projects", "Skills", "Contact"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="mobile-nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
             </div>
           )}
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section id="hero" className="py-20 px-4">
         <div className="max-w-6xl mx-auto hero-container">
-          {/* Image container - LEFT SIDE */}
           <div className="hero-image-container">
             <img
-              src={myPhoto || "/placeholder.svg"}
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LimPhoto-ZVg8BKwmQNdhzrwdF3MrqbbL9sBh3H.jpeg"
               alt="John Odysseus O. Lim"
               className="rounded-full border-4 border-blue-100 w-[180px] h-[180px] object-cover shadow-lg"
             />
           </div>
 
-          {/* Text content container - RIGHT SIDE */}
           <div className="hero-text-container">
             <h1 className="text-4xl font-bold mb-2">John Odysseus O. Lim</h1>
             <h2 className="text-xl text-gray-600 mb-4">4th Year BS in Computer Engineering</h2>
             <p className="text-lg text-gray-600 mb-8 max-w-3xl">
-              I'm a Computer Engineering student specializing in Data Science. I'm passionate about Artificial
-              Intelligence, Machine Learning, and solving real-world problems using technology. This portfolio showcases
-              my work, skills, and aspirations.
+              Aspiring AI/ML Engineer passionate about solving real-world problems through innovative technology.
+              Specializing in Data Science, Machine Learning, and Computer Vision applications.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a href="#projects" className="btn-primary">
                 View My Projects
@@ -243,7 +257,7 @@ function App() {
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-shadow"
+                className="bg-white rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-shadow skill-card"
               >
                 <span className="font-medium text-gray-800">{skill}</span>
               </div>
@@ -260,7 +274,27 @@ function App() {
             I'm always interested in new opportunities, research collaborations, and interesting projects. Let's
             connect!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+
+          {/* Contact Info Cards */}
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <Mail className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <h3 className="font-semibold mb-2">Email</h3>
+              <p className="text-gray-600">jhndyssslm@protonmail.com</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <Phone className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <h3 className="font-semibold mb-2">Phone</h3>
+              <p className="text-gray-600">+639155964194</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <MapPin className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <h3 className="font-semibold mb-2">Location</h3>
+              <p className="text-gray-600">Manila, Philippines</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="mailto:jhndyssslm@protonmail.com" className="btn-primary">
               <Mail className="mr-2 h-4 w-4" />
               Send Email
@@ -286,6 +320,24 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-gray-400">© 2024 John Odysseus Lim. Built with React and passion for technology.</p>
+          <div className="flex justify-center space-x-6 mt-4">
+            <a href="https://github.com/Odysseus-droid" className="text-gray-400 hover:text-white transition-colors">
+              <GitHub className="h-5 w-5" />
+            </a>
+            <a href="https://linkedin.com/in/jhndyssslm" className="text-gray-400 hover:text-white transition-colors">
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a href="mailto:jhndyssslm@protonmail.com" className="text-gray-400 hover:text-white transition-colors">
+              <Mail className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
