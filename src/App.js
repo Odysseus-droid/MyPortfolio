@@ -1,10 +1,7 @@
-"use client"
-
 import "./App.css"
 import myPhoto from "./LimPhoto.jpeg"
 import myResume from "./LimResume.pdf"
 import { useState } from "react"
-import GitHubCalendar from "react-github-calendar"
 import { GitlabIcon as GitHub, Linkedin, Mail, ExternalLink, Download, Menu, X } from "lucide-react"
 
 function App() {
@@ -66,9 +63,6 @@ function App() {
             <div className="hidden md:flex space-x-8">
               <a href="#about" className="nav-link">
                 About
-              </a>
-              <a href="#github-activity" className="nav-link">
-                GitHub Activity
               </a>
               <a href="#projects" className="nav-link">
                 Projects
@@ -192,49 +186,6 @@ function App() {
         </div>
       </section>
 
-      {/* GitHub Activity Section */}
-      <section id="github-activity" className="py-20 px-4 github-activity-section">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">GitHub Activity</h2>
-
-          <div className="text-center mb-8">
-            <h3 className="text-xl font-semibold mb-2">My Coding Journey</h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Here's a visual representation of my coding activity over the past year. Each square represents a day, and
-              the color intensity shows how active I was on GitHub.
-            </p>
-          </div>
-
-          <div className="github-calendar-container mb-8">
-            <GitHubCalendar
-              username="Odysseus-droid"
-              blockSize={12}
-              blockMargin={4}
-              fontSize={14}
-              theme={{
-                light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-                dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
-              }}
-              style={{
-                width: "100%",
-              }}
-            />
-          </div>
-
-          <div className="text-center">
-            <a
-              href="https://github.com/Odysseus-droid"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center"
-            >
-              <GitHub className="mr-2 h-4 w-4" />
-              View My GitHub Profile
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
@@ -245,11 +196,6 @@ function App() {
                 key={index}
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
                   <p className="text-gray-600 mb-4">{project.description}</p>
